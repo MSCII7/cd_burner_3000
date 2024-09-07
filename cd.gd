@@ -38,7 +38,7 @@ func _process(delta):
 	else:
 		for child in get_children():
 			child.visible = true
-		rotation_degrees += speed_rpm/60 * 2 * PI
+		rotation_degrees += speed_rpm * 2 * PI * delta
 			
 	if move_in and centerpos != null and abs(centerpos.position.x - position.x) > 10:
 		position.x += -move_speed * delta
