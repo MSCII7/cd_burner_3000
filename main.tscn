@@ -1,38 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnnn5a6rgrwff"]
+[gd_scene load_steps=2 format=3 uid="uid://dnnn5a6rgrwff"]
 
-[ext_resource type="Texture2D" uid="uid://dbsk6owi8j5wc" path="res://circ.png" id="1_14tcn"]
-[ext_resource type="Script" path="res://ball.gd" id="2_vccua"]
-[ext_resource type="Texture2D" uid="uid://clffwer5quduk" path="res://cd.png" id="2_y0cmn"]
-[ext_resource type="Script" path="res://cd.gd" id="4_16bfv"]
+[ext_resource type="Script" path="res://main.gd" id="1_7xsvd"]
 
-[node name="Node2D" type="Node2D"]
-position = Vector2(58, 32)
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("side_pos", "center_pos")]
+position = Vector2(51, 32)
 scale = Vector2(0.46, 0.46)
-
-[node name="bolinha" type="Sprite2D" parent="." node_paths=PackedStringArray("centro")]
-modulate = Color(0.160784, 0.160784, 0.160784, 1)
-z_index = 2
-position = Vector2(590, 184)
-scale = Vector2(0.048, 0.048)
-texture = ExtResource("1_14tcn")
-script = ExtResource("2_vccua")
-speed = 1.5
-centro = NodePath("../cd")
-raio = 145
-
-[node name="cd" type="Sprite2D" parent="." node_paths=PackedStringArray("prompt_object")]
-texture_filter = 1
-position = Vector2(588, 339)
-scale = Vector2(0.763, 0.761)
-texture = ExtResource("2_y0cmn")
-script = ExtResource("4_16bfv")
-prompt_object = NodePath("../press_prompt")
+script = ExtResource("1_7xsvd")
+side_pos = NodePath("cdinstancepos")
+center_pos = NodePath("centerpos")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 326)
 
-[node name="press_prompt" type="Sprite2D" parent="."]
-modulate = Color(0.447059, 0.447059, 0.447059, 0.254902)
-position = Vector2(465, 243)
-scale = Vector2(0.135, 0.135)
-texture = ExtResource("1_14tcn")
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -113.0
+offset_top = -63.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="score" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 1208.65
+offset_top = 47.7826
+offset_right = 1628.65
+offset_bottom = 393.783
+theme_override_font_sizes/normal_font_size = 100
+text = "0
+"
+
+[node name="vidas" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 93.4348
+offset_top = 52.1304
+offset_right = 443.435
+offset_bottom = 402.13
+theme_override_font_sizes/normal_font_size = 100
+text = "3"
+
+[node name="centerpos" type="Node2D" parent="."]
+position = Vector2(578.261, 323.913)
+
+[node name="uppos" type="Node2D" parent="."]
+position = Vector2(578.261, -839.13)
+
+[node name="cdinstancepos" type="Node2D" parent="."]
+position = Vector2(1526.09, 326.087)
