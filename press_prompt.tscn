@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbsk6owi8j5wc" path="res://circ.png" id="1_g040x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5cwtm"]
-radius = 163.12
+radius = 206.49
 
 [node name="press_prompt" type="Sprite2D"]
 modulate = Color(0.682353, 0.592157, 0.792157, 0.439216)
@@ -11,7 +11,7 @@ z_index = 1
 scale = Vector2(0.135, 0.135)
 texture = ExtResource("1_g040x")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="press_prompt" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="press_prompt"]
 shape = SubResource("CircleShape2D_5cwtm")

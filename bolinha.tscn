@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmxqwluhbgt78"]
+
+[ext_resource type="Texture2D" uid="uid://dbsk6owi8j5wc" path="res://circ.png" id="1_ej17p"]
+[ext_resource type="Script" path="res://ball.gd" id="2_qibhy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_25as5"]
+radius = 249.25
+
+[node name="bolinha" type="Sprite2D"]
+modulate = Color(0.160784, 0.160784, 0.160784, 0.698039)
+top_level = true
+z_index = 2
+position = Vector2(2.62115, -203.679)
+scale = Vector2(0.0629096, 0.0630749)
+texture = ExtResource("1_ej17p")
+script = ExtResource("2_qibhy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_25as5")
+one_way_collision_margin = 0.0
+
+[node name="timer_saiu" type="Timer" parent="."]
+wait_time = 0.04
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="timer_saiu" to="." method="_on_timer_saiu_timeout"]
