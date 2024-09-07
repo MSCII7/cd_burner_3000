@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsvuf85upltmb"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_yc6vs"]
+[ext_resource type="Texture2D" uid="uid://d35ttdxwkte6p" path="res://cd_spinning-ezgif.com-gif-to-sprite-converter-downsized.png" id="2_vsimg"]
+[ext_resource type="Script" path="res://TextureRectAnimated.gd" id="3_6ftgj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e84fu"]
+atlas = ExtResource("2_vsimg")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yc6vs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = -20.0
+offset_right = 60.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainerButtons" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonBegin" type="Button" parent="HBoxContainer/VBoxContainerButtons"]
+layout_mode = 2
+text = "begin"
+
+[node name="ButtonAbout" type="Button" parent="HBoxContainer/VBoxContainerButtons"]
+layout_mode = 2
+text = "about"
+
+[node name="VBoxContainerTitle" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRectAnimatedSpinner" type="TextureRect" parent="HBoxContainer/VBoxContainerTitle"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_e84fu")
+script = ExtResource("3_6ftgj")
+spriteHeight = 146.0
+spriteWidth = 149.48
+loop = true
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainerTitle"]
+layout_mode = 2
+text = "cd burner 3000"
