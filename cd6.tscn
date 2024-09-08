@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgdviosvefvxm"]
+[gd_scene load_steps=4 format=3 uid="uid://cuv72yxgdv0pr"]
 
 [ext_resource type="Texture2D" uid="uid://cc8j03vxg2yk2" path="res://cdpenguin.png" id="1_ixn1o"]
 [ext_resource type="Script" path="res://cd.gd" id="2_o50oi"]
-[ext_resource type="PackedScene" uid="uid://ciodyk8xp2g04" path="res://bolinha.tscn" id="3_0nqmp"]
+[ext_resource type="PackedScene" uid="uid://dmxqwluhbgt78" path="res://bolinha.tscn" id="3_0nqmp"]
 
 [node name="cd" type="Sprite2D"]
 texture_filter = 1
 scale = Vector2(0.908, 0.906)
 texture = ExtResource("1_ixn1o")
 script = ExtResource("2_o50oi")
-pattern = PackedFloat32Array(0.1, 0.2, 0.3, 0.5, 0.9, 0.3, 0.69, 420)
+pattern = PackedFloat32Array(0.1, 0.3, 0.5, 0.9, 0.3, 420)
 radius = 200.0
 move_speed = 800
 
