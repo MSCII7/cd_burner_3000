@@ -6,6 +6,7 @@ extends Sprite2D
 var speed_rpm = 0
 
 var centerpos : Node2D
+var uppos : Node2D
 
 var active = false
 var move_in = true
@@ -48,3 +49,5 @@ func _process(delta):
 		
 	if move_away:
 		position.y += -move_speed * delta
+	if position.y < uppos.position.y:
+		queue_free()

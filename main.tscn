@@ -3,16 +3,17 @@
 [ext_resource type="Script" path="res://main.gd" id="1_7xsvd"]
 [ext_resource type="Script" path="res://hearts.gd" id="2_bhdwe"]
 [ext_resource type="Texture2D" uid="uid://btujjn5wlucxy" path="res://heart.png" id="2_d6ayl"]
-[ext_resource type="FontFile" uid="uid://c26c7pw45fdxa" path="res://Base 02.ttf" id="2_xryve"]
+[ext_resource type="FontFile" uid="uid://b367cu8r8ok1p" path="res://Cowboys 2.0.otf" id="2_in8fr"]
 [ext_resource type="Texture2D" uid="uid://vqrnn837awk0" path="res://background.png" id="4_hfiac"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("side_pos", "center_pos")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("side_pos", "center_pos", "up_pos")]
 position = Vector2(51, 32)
 scale = Vector2(0.46, 0.46)
 script = ExtResource("1_7xsvd")
 max_speed_rpm = 50.0
 side_pos = NodePath("cdinstancepos")
 center_pos = NodePath("centerpos")
+up_pos = NodePath("uppos")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 326)
@@ -32,7 +33,7 @@ offset_left = 1239.09
 offset_top = -15.2609
 offset_right = 1659.09
 offset_bottom = 297.739
-theme_override_fonts/normal_font = ExtResource("2_xryve")
+theme_override_fonts/normal_font = ExtResource("2_in8fr")
 theme_override_font_sizes/normal_font_size = 100
 text = "0
 "
@@ -41,7 +42,7 @@ text = "0
 position = Vector2(578.261, 323.913)
 
 [node name="uppos" type="Node2D" parent="."]
-position = Vector2(578.261, -839.13)
+position = Vector2(578.261, -821.739)
 
 [node name="cdinstancepos" type="Node2D" parent="."]
 position = Vector2(1526.09, 326.087)
@@ -64,6 +65,6 @@ texture = ExtResource("2_d6ayl")
 
 [node name="background" type="Sprite2D" parent="."]
 z_index = -100
-position = Vector2(590.217, 331.522)
+position = Vector2(589.13, 330.435)
 scale = Vector2(2.18944, 2.28804)
 texture = ExtResource("4_hfiac")
