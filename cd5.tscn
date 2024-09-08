@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://cd.gd" id="2_1pgxs"]
 [ext_resource type="PackedScene" uid="uid://dmxqwluhbgt78" path="res://bolinha.tscn" id="3_v1dkq"]
 
-[node name="cd" type="Sprite2D"]
+[node name="cd2" type="Sprite2D"]
 texture_filter = 1
 scale = Vector2(0.908, 0.906)
 texture = ExtResource("1_df86j")
