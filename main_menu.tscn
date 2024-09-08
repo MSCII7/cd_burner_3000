@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bsvuf85upltmb"]
+[gd_scene load_steps=31 format=3 uid="uid://bsvuf85upltmb"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_yc6vs"]
 [ext_resource type="FontFile" uid="uid://dps64f2ftl5ne" path="res://MexicanaHollow.ttf" id="2_ju1yu"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="4_low65"]
 [ext_resource type="Texture2D" uid="uid://vqrnn837awk0" path="res://background.png" id="5_bl8w5"]
 [ext_resource type="Script" path="res://Label.gd" id="5_sbggn"]
-[ext_resource type="AudioStream" uid="uid://beneaidkp10di" path="res://midnight-forest-184304.mp3" id="7_nvlwq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emqg8"]
 atlas = ExtResource("3_1v5dt")
@@ -224,7 +223,7 @@ frame_progress = 0.356757
 position = Vector2(276.5, 180)
 scale = Vector2(1.29083, -0.278232)
 sprite_frames = SubResource("SpriteFrames_0twvp")
-frame_progress = 0.769523
+frame_progress = 0.401456
 script = ExtResource("4_low65")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
@@ -260,10 +259,6 @@ z_index = -100
 position = Vector2(348, 182)
 scale = Vector2(1.00345, 1.04903)
 texture = ExtResource("5_bl8w5")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_nvlwq")
-pitch_scale = 0.81
 
 [connection signal="pressed" from="Control/VBoxContainer/MarginContainer/HBoxContainerButtons/ButtonBegin" to="." method="_on_button_begin_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/MarginContainer/HBoxContainerButtons/ButtonAbout" to="." method="_on_button_about_pressed"]

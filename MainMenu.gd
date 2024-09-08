@@ -3,6 +3,7 @@ extends Node2D
 @onready var buttonAbout = $Control/VBoxContainer/MarginContainer/HBoxContainerButtons/ButtonAbout
 var aboutOn = false
 var aboutText = "O botão de jogar está pra lá <---"
+@onready var transcendenciaAudio = get_node('/root/Transcendencia').get_child(0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +29,6 @@ func _on_button_about_pressed():
 
 func _on_check_button_toggled(toggled_on):
 	if toggled_on:
-		$AudioStreamPlayer2D.play()
+		transcendenciaAudio.play()
 	else:
-		$AudioStreamPlayer2D.stop()
+		transcendenciaAudio.stop()

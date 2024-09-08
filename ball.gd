@@ -49,7 +49,6 @@ func _physics_process(delta):
 				if !$AudioStreamPlayer2D.is_playing():
 					$AudioStreamPlayer2D.play()
 			else:
-				
 				heartmanager.vidas -= 1
 				
 			
