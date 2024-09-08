@@ -31,7 +31,9 @@ func _physics_process(delta):
 	active = visible
 	position = position.rotated(cd.speed_rpm/60 * 2 * PI * delta)
 	if heartmanager.vidas <= 0:
+		get_parent().get_parent().save()
 		get_tree().reload_current_scene()
+		
 		
 	if active:
 		
@@ -57,8 +59,8 @@ func _on_area_2d_area_entered(area):
 	if area.name == "press_prompt":
 		inside_prompt = true
 		var prompt = area.get_parent()
-		prompt.modulate.a += prompt.modulate.a * 0.4
-		prompt.scale += prompt.scale * 0.1
+		prompt.modulate.a *= 1.3
+		prompt.scale *= 1.1
 
 func _on_area_2d_area_exited(area):
 	if area.name == "press_prompt":
@@ -66,8 +68,8 @@ func _on_area_2d_area_exited(area):
 		tempo_sobra = true
 		timer_saiu.start()
 		var prompt = area.get_parent()
-		prompt.modulate.a -= prompt.modulate.a * 0.4
-		prompt.scale -= prompt.scale * 0.1
+		prompt.modulate.a /= 1.3
+		prompt.scale /= 1.1
 
 
 func _on_timer_saiu_timeout():
