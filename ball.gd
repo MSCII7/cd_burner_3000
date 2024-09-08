@@ -31,9 +31,10 @@ func _physics_process(delta):
 	active = visible
 	position = position.rotated(cd.speed_rpm/60 * 2 * PI * delta)
 	if heartmanager.vidas <= 0:
-		get_parent().get_parent().save()
-		get_tree().reload_current_scene()
-		
+		var hs_manager = get_node("/root/Highscore")
+		if hs_manager.highscore <= int(score_txt.text):
+			hs_manager.highscore = int(score_txt.text)
+		get_tree().change_scene_to_file("res://main_menu.tscn")
 		
 	if active:
 		

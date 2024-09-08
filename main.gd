@@ -9,15 +9,13 @@ var score_max = 250.0
 var score_obj
 var score
 
-var save_path = "user://highscore.save"
-var highscore = 0
-
 @export var min_rpm = 30.0
 @export var max_speed_rpm = 100.0
 var speed_rpm
 
 @export var side_pos : Node2D
 @export var center_pos : Node2D
+@export var up_pos : Node2D
 
 func criar_cd():
 	var indexcriar = randi() % len(cd_files)
@@ -29,13 +27,13 @@ func criar_cd():
 	add_child(cd_entrando)
 	cd_entrando.position = side_pos.position
 	cd_entrando.centerpos = center_pos
+	cd_entrando.uppos = up_pos
 	cd_entrando.speed_rpm = speed_rpm
 	
 	lastindex = indexcriar
 	
 	
 func _ready():
-	print(highscore)
 	speed_rpm = min_rpm
 	cd_files = [preload("res://cd1.tscn"), 
 				preload("res://cd2.tscn"), 
