@@ -46,7 +46,8 @@ func _physics_process(delta):
 				score += 1
 				score_txt.text = str(score)
 				quantidade_acertos_cd += 1
-				
+				if !$AudioStreamPlayer2D.is_playing():
+					$AudioStreamPlayer2D.play()
 			else:
 				
 				heartmanager.vidas -= 1
