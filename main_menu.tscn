@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsvuf85upltmb"]
+[gd_scene load_steps=6 format=3 uid="uid://bsvuf85upltmb"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_yc6vs"]
+[ext_resource type="FontFile" uid="uid://dps64f2ftl5ne" path="res://MexicanaHollow.ttf" id="2_ju1yu"]
 [ext_resource type="Texture2D" uid="uid://d35ttdxwkte6p" path="res://cd_spinning-ezgif.com-gif-to-sprite-converter-downsized.png" id="2_vsimg"]
 [ext_resource type="Script" path="res://TextureRectAnimated.gd" id="3_6ftgj"]
 
@@ -16,43 +17,57 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yc6vs")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.5
-offset_top = -20.0
-offset_right = 60.5
-offset_bottom = 20.0
+offset_left = -87.5
+offset_top = -33.0
+offset_right = 87.5
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainerButtons" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainerTitle" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="ButtonBegin" type="Button" parent="HBoxContainer/VBoxContainerButtons"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainerTitle"]
 layout_mode = 2
-text = "begin"
+theme_override_colors/font_color = Color(0.996078, 0.490196, 0.537255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.701961, 0.0235294, 0.607843, 1)
+theme_override_fonts/font = ExtResource("2_ju1yu")
+theme_override_font_sizes/font_size = 75
+text = "cd burner 3000"
 
-[node name="ButtonAbout" type="Button" parent="HBoxContainer/VBoxContainerButtons"]
-layout_mode = 2
-text = "about"
-
-[node name="VBoxContainerTitle" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRectAnimatedSpinner" type="TextureRect" parent="HBoxContainer/VBoxContainerTitle"]
+[node name="TextureRectAnimatedSpinner" type="TextureRect" parent="VBoxContainer/VBoxContainerTitle"]
 visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_e84fu")
 script = ExtResource("3_6ftgj")
 spriteHeight = 146.0
-spriteWidth = 149.48
+spriteWidth = 149.49
 loop = true
+fps = 23
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainerTitle"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-text = "cd burner 3000"
+theme_override_constants/margin_top = 50
+
+[node name="HBoxContainerButtons" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ButtonBegin" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainerButtons"]
+layout_mode = 2
+text = "begin"
+
+[node name="ButtonAbout" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainerButtons"]
+layout_mode = 2
+text = "about"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainerButtons/ButtonBegin" to="." method="_on_button_begin_pressed"]

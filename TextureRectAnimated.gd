@@ -3,7 +3,7 @@ class_name TextureRectAnimated
 
 @export var spriteHeight: float 
 @export var spriteWidth: float 
-@export var loop: bool = false     
+@export var loop: bool = false
 @export var animating: bool = true
 
 @export var fps = 30
