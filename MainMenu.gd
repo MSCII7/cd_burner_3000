@@ -24,3 +24,10 @@ func _on_button_about_pressed():
 		buttonAbout.text = aboutText
 	else:
 		buttonAbout.text = "about ;)"
+
+
+func _on_check_button_toggled(toggled_on):
+	if toggled_on:
+		$AudioStreamPlayer2D.play()
+	else:
+		$AudioStreamPlayer2D.stop()
