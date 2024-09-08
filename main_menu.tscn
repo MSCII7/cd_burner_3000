@@ -223,7 +223,7 @@ frame_progress = 0.356757
 position = Vector2(276.5, 180)
 scale = Vector2(1.29083, -0.278232)
 sprite_frames = SubResource("SpriteFrames_0twvp")
-frame_progress = 0.426182
+frame_progress = 0.692538
 script = ExtResource("4_low65")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]

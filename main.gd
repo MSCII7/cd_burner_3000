@@ -38,7 +38,8 @@ func _ready():
 	cd_files = [preload("res://cd1.tscn"), 
 				preload("res://cd2.tscn"), 
 				preload("res://cd3.tscn"),
-				preload("res://cd4.tscn"),]
+				preload("res://cd4.tscn"),
+				preload("res://cd6.tscn"),]
 				
 	score_obj = $Control/score
 		

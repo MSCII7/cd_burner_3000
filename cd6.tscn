@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgdviosvefvxm"]
+
+[ext_resource type="Texture2D" uid="uid://cc8j03vxg2yk2" path="res://cdpenguin.png" id="1_ixn1o"]
+[ext_resource type="Script" path="res://cd.gd" id="2_o50oi"]
+[ext_resource type="PackedScene" path="res://bolinha.tscn" id="3_0nqmp"]
+
+[node name="cd" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(0.908, 0.906)
+texture = ExtResource("1_ixn1o")
+script = ExtResource("2_o50oi")
+pattern = PackedFloat32Array(0.1, 0.2, 0.3, 0.5, 0.9, 0.3, 0.69, 420)
+radius = 200.0
+move_speed = 800
+
+[node name="bolinha" parent="." node_paths=PackedStringArray("cd") instance=ExtResource("3_0nqmp")]
+top_level = false
+cd = NodePath("..")
