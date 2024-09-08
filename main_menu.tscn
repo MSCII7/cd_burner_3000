@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://bsvuf85upltmb"]
+[gd_scene load_steps=31 format=3 uid="uid://bsvuf85upltmb"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_yc6vs"]
 [ext_resource type="FontFile" uid="uid://dps64f2ftl5ne" path="res://MexicanaHollow.ttf" id="2_ju1yu"]
 [ext_resource type="Texture2D" uid="uid://on8ocmdece5v" path="res://cd_spinning_spritesheet.png" id="3_1v5dt"]
 [ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="4_low65"]
 [ext_resource type="Texture2D" uid="uid://vqrnn837awk0" path="res://background.png" id="5_bl8w5"]
+[ext_resource type="Script" path="res://Label.gd" id="5_sbggn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emqg8"]
 atlas = ExtResource("3_1v5dt")
@@ -212,9 +213,9 @@ theme_override_font_sizes/font_size = 75
 text = "cd burner 3000"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Control/VBoxContainer/MarginContainer2"]
-self_modulate = Color(0.160784, 0.160784, 0.160784, 0.384314)
-position = Vector2(280.5, 204)
-scale = Vector2(1.29083, -0.278232)
+self_modulate = Color(0, 0, 0, 0.501961)
+position = Vector2(276.5, 221)
+scale = Vector2(1.36695, -0.294639)
 sprite_frames = SubResource("SpriteFrames_0twvp")
 frame_progress = 0.356757
 
@@ -222,7 +223,7 @@ frame_progress = 0.356757
 position = Vector2(276.5, 180)
 scale = Vector2(1.29083, -0.278232)
 sprite_frames = SubResource("SpriteFrames_0twvp")
-frame_progress = 0.436973
+frame_progress = 0.426182
 script = ExtResource("4_low65")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
@@ -242,10 +243,18 @@ text = "begin"
 layout_mode = 2
 text = "about"
 
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "highscore: "
+script = ExtResource("5_sbggn")
+
 [node name="background" type="Sprite2D" parent="."]
 z_index = -100
-position = Vector2(336, 192)
+position = Vector2(348, 182)
 scale = Vector2(1.00345, 1.04903)
 texture = ExtResource("5_bl8w5")
 
 [connection signal="pressed" from="Control/VBoxContainer/MarginContainer/HBoxContainerButtons/ButtonBegin" to="." method="_on_button_begin_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/MarginContainer/HBoxContainerButtons/ButtonAbout" to="." method="_on_button_about_pressed"]

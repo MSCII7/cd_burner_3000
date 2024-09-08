@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var buttonAbout = $Control/VBoxContainer/MarginContainer/HBoxContainerButtons/ButtonAbout
+var aboutOn = false
+var aboutText = "O botão de jogar está pra lá <---"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,3 +16,11 @@ func _process(delta):
 
 func _on_button_begin_pressed():
 	get_tree().change_scene_to_file("res://main.tscn")
+
+
+func _on_button_about_pressed():
+	aboutOn = not aboutOn
+	if aboutOn:
+		buttonAbout.text = aboutText
+	else:
+		buttonAbout.text = "about ;)"
