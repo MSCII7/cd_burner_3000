@@ -39,7 +39,8 @@ func _ready():
 				preload("res://cd2.tscn"), 
 				preload("res://cd3.tscn"),
 				preload("res://cd4.tscn"),
-				preload("res://cd6.tscn"),]
+				preload("res://cd5.tscn"),
+				preload("res://cd6.tscn")]
 				
 	score_obj = $Control/score
 		

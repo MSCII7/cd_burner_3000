@@ -62,6 +62,7 @@ func _on_area_2d_area_entered(area):
 		var prompt = area.get_parent()
 		prompt.modulate.a *= 1.3
 		prompt.scale *= 1.1
+		
 
 func _on_area_2d_area_exited(area):
 	if area.name == "press_prompt":

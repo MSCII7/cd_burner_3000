@@ -3,6 +3,8 @@ extends Sprite2D
 @export var pattern : PackedFloat32Array
 @export var radius = 100.0
 @export var move_speed = 100
+@export var is_jungle = false
+
 var speed_rpm = 0
 
 var centerpos : Node2D
@@ -20,7 +22,7 @@ func _ready():
 		var angle_converted = 2 * PI * element - PI/2
 		var pos = Vector2(cos(angle_converted), sin(angle_converted)) * radius
 		var prompt_obj = prompt_base.instantiate()
-		
+			
 		prompt_obj.position = pos
 		add_child(prompt_obj)
 	
@@ -39,6 +41,8 @@ func _process(delta):
 	else:
 		for child in get_children():
 			child.visible = true
+			if is_jungle:
+				child.self_modulate = Color(255, 255, 255, child.self_modulate.a)
 			
 	if move_in and centerpos != null and position.x > centerpos.position.x:
 		position.x += -move_speed * delta
