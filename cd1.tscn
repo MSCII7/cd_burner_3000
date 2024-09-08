@@ -6,7 +6,7 @@
 
 [node name="cd" type="Sprite2D"]
 texture_filter = 1
-scale = Vector2(0.763, 0.761)
+scale = Vector2(0.908, 0.906)
 texture = ExtResource("1_w2ejn")
 script = ExtResource("2_00b1q")
 pattern = PackedFloat32Array(0.33, 0.66, 1)
@@ -14,4 +14,5 @@ radius = 200.0
 move_speed = 1000
 
 [node name="bolinha" parent="." node_paths=PackedStringArray("cd") instance=ExtResource("3_6e8f4")]
+top_level = false
 cd = NodePath("..")

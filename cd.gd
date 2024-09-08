@@ -3,7 +3,7 @@ extends Sprite2D
 @export var pattern : PackedFloat32Array
 @export var radius = 100.0
 @export var move_speed = 100
-@export var speed_rpm = 30.0
+var speed_rpm = 0
 
 var centerpos : Node2D
 
@@ -38,12 +38,11 @@ func _process(delta):
 	else:
 		for child in get_children():
 			child.visible = true
-		rotation_degrees += speed_rpm * 2 * PI * delta
 			
-	if move_in and centerpos != null and abs(centerpos.position.x - position.x) > 10:
+	if move_in and centerpos != null and position.x > centerpos.position.x:
 		position.x += -move_speed * delta
 		
-	elif move_in and abs(centerpos.position.x - position.x) < 10:
+	elif move_in and position.x < centerpos.position.x:
 		position.x = centerpos.position.x
 		move_in = false
 		

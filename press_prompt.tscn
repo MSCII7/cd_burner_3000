@@ -6,7 +6,7 @@
 radius = 206.49
 
 [node name="press_prompt" type="Sprite2D"]
-modulate = Color(0.682353, 0.592157, 0.792157, 0.439216)
+modulate = Color(0, 0, 0, 0.211765)
 z_index = 1
 scale = Vector2(0.135, 0.135)
 texture = ExtResource("1_g040x")

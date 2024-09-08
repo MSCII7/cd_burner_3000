@@ -5,7 +5,9 @@ extends Sprite2D
 @export var cd : Node2D
 
 var score_txt : RichTextLabel
-var vidas_txt : RichTextLabel
+var particles : CPUParticles2D
+
+var heartmanager
 var quantidade_acertos_cd = 0
 
 var timer_saiu : Timer
@@ -19,31 +21,33 @@ var active = false
 func _ready():
 	position = Vector2(cos(3 * PI/2), sin(3 * PI/2)) * cd.radius
 	score_txt = get_parent().get_parent().get_node("Control/score")
-	vidas_txt = get_parent().get_parent().get_node("Control/vidas")
+	heartmanager = get_parent().get_parent().get_node("hearts")
 	timer_saiu = $timer_saiu
-
+	particles = $particles
+	
 		
 func _physics_process(delta):
 	
 	active = visible
-	if int(vidas_txt.text) <= 0:
+	position = position.rotated(cd.speed_rpm/60 * 2 * PI * delta)
+	if heartmanager.vidas <= 0:
 		get_tree().reload_current_scene()
+		
 	if active:
 		
 		if Input.is_action_just_pressed("acao"):
-				if inside_prompt or tempo_sobra:
-					
-					var score = int(score_txt.text)
-					score += 1
-					score_txt.text = str(score)
-					quantidade_acertos_cd += 1
-					
-				else:
-					
-					var vidas = int(vidas_txt.text)
-					vidas -= 1
-					vidas_txt.text = str(vidas)
-					
+			particles.restart()
+			particles.emitting = true
+			if inside_prompt or tempo_sobra:
+				var score = int(score_txt.text)
+				score += 1
+				score_txt.text = str(score)
+				quantidade_acertos_cd += 1
+				
+			else:
+				
+				heartmanager.vidas -= 1
+				
 			
 	if quantidade_acertos_cd >= voltas_para_passar * len(cd.pattern):
 		cd.move_away = true
@@ -53,7 +57,8 @@ func _on_area_2d_area_entered(area):
 	if area.name == "press_prompt":
 		inside_prompt = true
 		var prompt = area.get_parent()
-		prompt.modulate.a += 0.5
+		prompt.modulate.a += prompt.modulate.a * 0.4
+		prompt.scale += prompt.scale * 0.1
 
 func _on_area_2d_area_exited(area):
 	if area.name == "press_prompt":
@@ -61,7 +66,8 @@ func _on_area_2d_area_exited(area):
 		tempo_sobra = true
 		timer_saiu.start()
 		var prompt = area.get_parent()
-		prompt.modulate.a -= 0.5
+		prompt.modulate.a -= prompt.modulate.a * 0.4
+		prompt.scale -= prompt.scale * 0.1
 
 
 func _on_timer_saiu_timeout():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmxqwluhbgt78"]
+[gd_scene load_steps=5 format=3 uid="uid://dmxqwluhbgt78"]
 
 [ext_resource type="Texture2D" uid="uid://dbsk6owi8j5wc" path="res://circ.png" id="1_ej17p"]
 [ext_resource type="Script" path="res://ball.gd" id="2_qibhy"]
@@ -6,14 +6,20 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_25as5"]
 radius = 249.25
 
+[sub_resource type="Gradient" id="Gradient_tar2a"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
 [node name="bolinha" type="Sprite2D"]
-modulate = Color(0.160784, 0.160784, 0.160784, 0.698039)
+self_modulate = Color(0.25098, 0.243137, 0.266667, 0.556863)
 top_level = true
 z_index = 2
 position = Vector2(2.62115, -203.679)
 scale = Vector2(0.0629096, 0.0630749)
 texture = ExtResource("1_ej17p")
 script = ExtResource("2_qibhy")
+voltas_para_passar = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -25,6 +31,22 @@ one_way_collision_margin = 0.0
 [node name="timer_saiu" type="Timer" parent="."]
 wait_time = 0.04
 one_shot = true
+
+[node name="particles" type="CPUParticles2D" parent="."]
+self_modulate = Color(0.462745, 0.462745, 0.462745, 0.968627)
+emitting = false
+amount = 10
+one_shot = true
+speed_scale = 2.95
+explosiveness = 1.0
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 7000.0
+initial_velocity_max = 9000.0
+angular_velocity_min = 436.36
+angular_velocity_max = 450.91
+color_ramp = SubResource("Gradient_tar2a")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
